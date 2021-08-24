@@ -13,9 +13,10 @@ def main() -> None:
         if result.ok:
             with open(dir + f"seg-{i}.ts", 'wb') as f:
                 f.write(result.content)
+            print(f"Video seg-{i}.ts downloaded successfully! Size: {len(result.content)/1000} KB")
             i += 1
-            time.sleep(0.5)
         else:
+            print(f"FAIL: Response returned {result.status_code} at index {i}, exiting.")
             break
 
 if __name__ == '__main__':
